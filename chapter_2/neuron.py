@@ -1,3 +1,5 @@
+# single layer operations without numpy
+
 inputs = [1, 2, 3, 2.5]
 weights = [[0.2, 0.8, -0.5, 1],
            [0.5, -0.91, 0.26, -0.5],
@@ -14,3 +16,8 @@ for neuron_weights, neuron_bias in zip(weights, biases):
     layer_outputs.append(neuron_output)
 print(layer_outputs)
 
+# single layer operations with numpy
+import numpy as np
+
+outputs = np.dot(weights, inputs) + biases
+print(outputs)
