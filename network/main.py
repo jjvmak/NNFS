@@ -4,6 +4,7 @@ from nnfs.datasets import spiral_data
 from network.layers import Layer_Dense
 from network.relu import Activation_ReLU
 from network.softmax import Activation_Softmax
+from network.loss_categorical_crossentropy import Loss_CategoricalCrossentropy
 
 nnfs.init()
 
@@ -17,6 +18,8 @@ activation1 = Activation_ReLU()
 dense2 = Layer_Dense(3, 3)
 activation2 = Activation_Softmax()
 
+loss_function = Loss_CategoricalCrossentropy()
+
 # Make forward pass for first layer and activation
 dense1.forward(X)
 activation1.forward(dense1.output)
@@ -27,4 +30,7 @@ activation2.forward(dense2.output)
 
 print(activation2.output[:5])
 
+loss = loss_function.calculate(activation2.output, y)
+
+print(loss)
 
