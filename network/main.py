@@ -34,3 +34,11 @@ loss = loss_function.calculate(activation2.output, y)
 
 print(loss)
 
+# calculate accuracy
+predictions = np.argmax(activation2.output, axis=1)
+if len(y.shape) == 2:
+    y = np.argmax(y, axis=1)
+# True evaluates to 1; False to 0
+# correct predictions / n
+accuracy = np.mean(predictions == y)
+print(accuracy)
